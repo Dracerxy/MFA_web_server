@@ -62,7 +62,6 @@ AccountRoutes.post('/login', async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
-
     // Update the dapp_address for the user
     user.dapp_address = dapp_address;
     await user.save();
