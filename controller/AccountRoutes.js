@@ -34,7 +34,7 @@ AccountRoutes.post('/login', async (req, res) => {
        return res.status(400).json({ error: 'User already exists' });
      }
   /*Please ensure to use the wallet creating API call here for the Client And the client should update the database schema to store the respective generated credsss...............*/
-     const response = await axios.get('http://localhost:3030/contract/get-wallet');
+     const response = await axios.get('https://blockchain-server-4s4u.onrender.com/contract/get-wallet');
      const { address, key } = response.data;
    const hashedPassword = await bcrypt.hash(password, 10);
      const user = new User({ name, email, password: hashedPassword,wallet_address:address,private_key:key });
